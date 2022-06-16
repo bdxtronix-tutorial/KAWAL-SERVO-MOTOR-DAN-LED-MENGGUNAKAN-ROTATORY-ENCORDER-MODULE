@@ -1,7 +1,6 @@
 #include <Servo.h>
 #define inputCLK 2
 #define inputDT 3
-
 Servo myservo;
 
 int counter = 0;
@@ -13,7 +12,6 @@ bool switchState = HIGH;                    // button value
 String encdir = "";                        //encoder direction
 
 void setup() {
-
   pinMode(inputCLK, INPUT);
   pinMode(inputDT, INPUT);
   pinMode(LED,OUTPUT);
@@ -21,13 +19,10 @@ void setup() {
   Serial.begin(9600);
   myservo.attach(8);
   previousStateCLK = digitalRead(inputCLK);
-
   Serial.println("jom start!");
-
 }
 
 void loop() {
-
   // BUTTON
   switchState = digitalRead(switchPin);
 
@@ -45,9 +40,7 @@ void loop() {
     }
 
   //Rotary encoder dan Servo
-  
   currentStateCLK = digitalRead(inputCLK);
-
   if (currentStateCLK != previousStateCLK)
   {
     if (digitalRead(inputDT) != currentStateCLK)
